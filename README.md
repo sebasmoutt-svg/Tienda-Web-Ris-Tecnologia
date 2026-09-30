@@ -1,2 +1,0 @@
-# Tienda RisTecnologia
-tienda
