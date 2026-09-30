@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RisTecnologia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra Superior Fija -->
+  <header class="barra-superior">
+    
+    <!-- 1. Izquierda: Opciones transformadas en botones -->
+    <nav class="menu-izquierda">
+      <button class="btn-menu">Inicio</button>
+      <button class="btn-menu">Productos</button>
+      <button class="btn-menu">Contacto</button>
+    </nav>
+
+    <!-- 2. Centro: Logo (puedes cambiar el 'src' por la ruta de tu logo) -->
+    <div class="logo-centro">
+      <img src="logo.jpg" alt="Logo" class="logo-img">
+    </div>
+
+    <!-- 3. Derecha: Barra de búsqueda y botón de carrito -->
+    <div class="elementos-derecha">
+      <input type="text" placeholder="Buscar..." class="input-busqueda">
+      <button class="btn-carrito" title="Carrito de compras">🛒</button>
+    </div>
+
+  </header>
+
+  <!-- Contenido simulado para probar el scroll -->
+  <main class="contenido-pagina">
+    <section class="carrusel" aria-label="Imágenes destacadas">
+      <div class="carrusel-ventana">
+        <div class="carrusel-pista" aria-live="polite">
+          <article class="carrusel-diapositiva">
+            <img src="destacado/destacado1.webp" alt="Imagen destacada 1">
+          </article>
+          <article class="carrusel-diapositiva">
+            <img src="destacado/destacado2.webp" alt="Imagen destacada 2">
+          </article>
+          <article class="carrusel-diapositiva">
+            <img src="destacado/destacado3.webp" alt="Imagen destacada 3">
+          </article>
+          <article class="carrusel-diapositiva">
+            <img src="destacado/destacado4.webp" alt="Imagen destacada 4">
+          </article>
+        </div>
+      </div>
+      <button class="carrusel-flecha carrusel-anterior" type="button" aria-label="Imagen anterior">&#8249;</button>
+      <button class="carrusel-flecha carrusel-siguiente" type="button" aria-label="Imagen siguiente">&#8250;</button>
+      <div class="carrusel-indicadores" aria-label="Elegir imagen">
+        <button class="carrusel-punto activo" type="button" aria-label="Ir a la imagen 1" aria-current="true"></button>
+        <button class="carrusel-punto" type="button" aria-label="Ir a la imagen 2"></button>
+        <button class="carrusel-punto" type="button" aria-label="Ir a la imagen 3"></button>
+        <button class="carrusel-punto" type="button" aria-label="Ir a la imagen 4"></button>
+      </div>
+    </section>
+  </main>
+
+  <script src="java.js"></script>
+
+  <div class="destacado">
+    <p>Nuevo y Destacado</p>
+  </div>
+</body>
+</html>

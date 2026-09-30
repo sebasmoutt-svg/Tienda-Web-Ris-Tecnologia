@@ -1,0 +1,295 @@
+/* Reset básico para evitar margenes indeseados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* 1. ESTILOS DE LA BARRA FIJA */
+.barra-superior {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background-color: #0f172a; /* Fondo oscuro */
+  color: white;
+  
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+/* Distribución en 3 secciones iguales para centrar perfectamente el logo */
+.menu-izquierda,
+.logo-centro,
+.elementos-derecha {
+  flex: 1; /* Cada sección ocupa el 33.3% del espacio */
+  display: flex;
+  align-items: center;
+}
+
+/* 2. SECCIÓN IZQUIERDA: BOTONES DEL MENÚ */
+.menu-izquierda {
+  justify-content: flex-start;
+  gap: 10px; /* Espacio entre botones */
+}
+
+.btn-menu {
+  background-color: #1e293b;
+  color: white;
+  border: 1px solid #334155;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-menu:hover {
+  background-color: #3b82f6; /* Cambia a azul al pasar el cursor */
+}
+
+/* 3. SECCIÓN CENTRO: LOGO */
+.logo-centro {
+  justify-content: center;
+}
+
+.logo-img {
+  max-height: 80px; /* Altura máxima para no deformar la barra */
+  object-fit: contain;
+  margin-top: 40px;
+}
+
+/* 4. SECCIÓN DERECHA: BUSCADOR Y CARRITO */
+.elementos-derecha {
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.input-busqueda {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: white;
+  outline: none;
+  width: 180px;
+  font-size: 14px;
+}
+
+.input-busqueda::placeholder {
+  color: #94a3b8;
+}
+
+.input-busqueda:focus {
+  border-color: #3b82f6;
+}
+
+.btn-carrito {
+  width: 38px;
+  height: 38px;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.btn-carrito:hover {
+  background-color: #2563eb;
+}
+
+/* 5. CONTENIDO DE LA PÁGINA */
+.contenido-pagina {
+  margin-top: 65px;
+  padding: 0;
+}
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  color: white;
+}
+
+.carrusel-ventana {
+  overflow: hidden;
+}
+
+.carrusel-pista {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+.carrusel-diapositiva {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.carrusel-diapositiva img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carrusel-flecha {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.48);
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.carrusel-flecha:hover {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.carrusel-anterior {
+  left: 18px;
+}
+
+.carrusel-siguiente {
+  right: 18px;
+}
+
+.carrusel-indicadores {
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+}
+
+.carrusel-punto {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.carrusel-punto.activo {
+  background: white;
+  transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+  .barra-superior {
+    height: auto;
+    min-height: 100px;
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 8px 12px;
+    align-content: center;
+    padding: 8px 12px;
+  }
+
+  .menu-izquierda {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .btn-menu {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .logo-centro {
+    justify-content: flex-start;
+  }
+
+  .logo-img {
+    max-width: 64px;
+    max-height: 42px;
+    margin-top: 0;
+  }
+
+  .elementos-derecha {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .input-busqueda {
+    width: 100%;
+    min-width: 0;
+    font-size: 13px;
+  }
+
+  .contenido-pagina {
+    margin-top: 100px;
+    padding: 0;
+  }
+
+  .carrusel-diapositiva img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .carrusel-flecha {
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+  }
+
+  .carrusel-anterior {
+    left: 8px;
+  }
+
+  .carrusel-siguiente {
+    right: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .barra-superior {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .btn-menu {
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+
+  .logo-img {
+    max-width: 54px;
+  }
+
+}
+
+.destacado {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 30px;
+  left: 30px;
+  transform: translateY(50px);
+}
