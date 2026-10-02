@@ -10,13 +10,22 @@
 
   <!-- Barra Superior Fija -->
   <header class="barra-superior">
-    
+    <button class="btn-menu-movil" type="button" aria-label="Abrir menú" aria-controls="menu-principal" aria-expanded="false">
+      <span aria-hidden="true"></span>
+    </button>
+
     <!-- 1. Izquierda: Opciones transformadas en botones -->
-    <nav class="menu-izquierda" aria-label="Navegación principal">
+    <nav class="menu-izquierda" id="menu-principal" aria-label="Navegación principal">
+      <div class="menu-encabezado-movil">
+        <strong>Menú</strong>
+        <button class="menu-cerrar-movil" type="button" aria-label="Cerrar menú">&times;</button>
+      </div>
       <a class="btn-menu" href="#inicio">Inicio</a>
       <a class="btn-menu" href="#productos">Productos</a>
       <a class="btn-menu" href="#contacto">Contacto</a>
     </nav>
+
+    <button class="menu-fondo" type="button" aria-label="Cerrar menú"></button>
 
     <!-- 2. Centro: Logo (puedes cambiar el 'src' por la ruta de tu logo) -->
     <a class="logo-centro" href="#inicio" aria-label="RisTecnologia, inicio">

@@ -3,6 +3,31 @@ const carouselSlides = document.querySelectorAll(".carrusel-diapositiva");
 const carouselDots = document.querySelectorAll(".carrusel-punto");
 const previousButton = document.querySelector(".carrusel-anterior");
 const nextButton = document.querySelector(".carrusel-siguiente");
+const mobileMenuButton = document.querySelector(".btn-menu-movil");
+const mobileMenuBackdrop = document.querySelector(".menu-fondo");
+const mobileMenuCloseButton = document.querySelector(".menu-cerrar-movil");
+const topBar = document.querySelector(".barra-superior");
+
+function closeMobileMenu() {
+	topBar?.classList.remove("menu-abierto");
+	mobileMenuButton?.setAttribute("aria-expanded", "false");
+	mobileMenuButton?.setAttribute("aria-label", "Abrir menú");
+}
+
+mobileMenuButton?.addEventListener("click", () => {
+	const isOpen = topBar?.classList.toggle("menu-abierto") ?? false;
+	mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+	mobileMenuButton.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+});
+
+mobileMenuBackdrop?.addEventListener("click", closeMobileMenu);
+mobileMenuCloseButton?.addEventListener("click", closeMobileMenu);
+document.querySelectorAll(".menu-izquierda a").forEach((link) => {
+	link.addEventListener("click", closeMobileMenu);
+});
+document.addEventListener("keydown", (event) => {
+	if (event.key === "Escape") closeMobileMenu();
+});
 
 if (carouselTrack && carouselSlides.length && carouselDots.length) {
 	let activeSlide = 0;
