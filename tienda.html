@@ -12,41 +12,42 @@
   <header class="barra-superior">
     
     <!-- 1. Izquierda: Opciones transformadas en botones -->
-    <nav class="menu-izquierda">
-      <button class="btn-menu">Inicio</button>
-      <button class="btn-menu">Productos</button>
-      <button class="btn-menu">Contacto</button>
+    <nav class="menu-izquierda" aria-label="Navegación principal">
+      <a class="btn-menu" href="#inicio">Inicio</a>
+      <a class="btn-menu" href="#productos">Productos</a>
+      <a class="btn-menu" href="#contacto">Contacto</a>
     </nav>
 
     <!-- 2. Centro: Logo (puedes cambiar el 'src' por la ruta de tu logo) -->
-    <div class="logo-centro">
+    <a class="logo-centro" href="#inicio" aria-label="RisTecnologia, inicio">
       <img src="logo.jpg" alt="Logo" class="logo-img">
-    </div>
+    </a>
 
-    <!-- 3. Derecha: Barra de búsqueda y botón de carrito -->
     <div class="elementos-derecha">
       <input type="text" placeholder="Buscar..." class="input-busqueda">
-      <button class="btn-carrito" title="Carrito de compras">🛒</button>
+      <button class="btn-carrito" type="button" aria-label="Abrir carrito" title="Carrito de compras">
+        <span aria-hidden="true">&#128722;</span>
+        <span class="cart-count" hidden>0</span>
+      </button>
     </div>
 
   </header>
 
-  <!-- Contenido simulado para probar el scroll -->
-  <main class="contenido-pagina">
+  <main class="contenido-pagina" id="inicio">
     <section class="carrusel" aria-label="Imágenes destacadas">
       <div class="carrusel-ventana">
         <div class="carrusel-pista" aria-live="polite">
           <article class="carrusel-diapositiva">
-            <img src="destacado/destacado1.webp" alt="Imagen destacada 1">
+            <img src="destacado/destacado1.jpg" alt="Control Gamepad D11 para juegos móviles">
           </article>
           <article class="carrusel-diapositiva">
-            <img src="destacado/destacado2.webp" alt="Imagen destacada 2">
+            <img src="destacado/destacado2.jpg" alt="Lámpara G multifuncional con altavoz Bluetooth">
           </article>
           <article class="carrusel-diapositiva">
-            <img src="destacado/destacado3.webp" alt="Imagen destacada 3">
+            <img src="destacado/destacado3.jpg" alt="Reloj inteligente Ultra3 con correas disponibles">
           </article>
           <article class="carrusel-diapositiva">
-            <img src="destacado/destacado4.webp" alt="Imagen destacada 4">
+            <img src="destacado/destacado4.jpg" alt="Lámpara G con reloj y carga inalámbrica">
           </article>
         </div>
       </div>
@@ -61,124 +62,46 @@
     </section>
   </main>
 
+  <section class="catalogo" id="productos">
+    <div class="destacado">
+      <p>Nuevo y Destacado</p>
+    </div>
+    <div class="productos" aria-live="polite"></div>
+  </section>
+
+  <footer class="site-footer" id="contacto">
+    <div class="footer-contenido">
+      <a class="footer-marca" href="#inicio" aria-label="RisTecnologia, volver al inicio">
+        <img src="logo.jpg" alt="RisTecnologia">
+      </a>
+      <div class="footer-columna">
+        <h2>Contacto</h2>
+        <a href="tel:+584123260875">04123260875</a>
+        <a href="mailto:ventaspublicitario@gmail.com">ventaspublicitario@gmail.com</a>
+      </div>
+      <div class="footer-columna">
+        <h2>Atención</h2>
+        <a href="https://wa.me/584123260875" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        <a href="https://wa.me/c/584123260875" target="_blank" rel="noopener">Ver catálogo de WhatsApp</a>
+      </div>
+      <div class="footer-columna footer-redes">
+        <h2>Síguenos</h2>
+        <div class="footer-enlaces-sociales">
+          <a href="https://www.instagram.com/ristecnologia.ve?utm_source=qr&amp;stkn=MTU2dTFhZTFtOHF6dw==" target="_blank" rel="noopener" aria-label="Instagram de RisTecnologia">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="social-punto" cx="18" cy="6" r="1"></circle></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.tiktok.com/@ristecnologia.ve?_r=1&amp;_t=ZS-9ACz1uJ2by5" target="_blank" rel="noopener" aria-label="TikTok de RisTecnologia">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3v11.2a4.2 4.2 0 1 1-3.2-4.08v3.32a1.1 1.1 0 1 0 .2.62V3h3c.2 2.1 1.5 3.7 4 4.1v3.1A8 8 0 0 1 15 8.8"></path></svg>
+            <span>TikTok</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">© 2026 RisTecnologia. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="catalogo.js"></script>
   <script src="java.js"></script>
-
-  <div class="destacado">
-    <p>Nuevo y Destacado</p>
-  </div>
-
-  <div class="productos">
-    <div class="producto1">
-      <img src="productos/producto1.jpg" alt="Producto 1">
-      <h3>Producto 1</h3>
-      <p>Descripción del producto 1.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto2">
-      <img src="productos/producto2.jpg" alt="Producto 2">
-      <h3>Producto 2</h3>
-      <p>Descripción del producto 2.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto3">
-      <img src="productos/producto3.jpg" alt="Producto 3">
-      <h3>Producto 3</h3>
-      <p>Descripción del producto 3.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-     <div class="producto4">
-      <img src="productos/producto4.jpg" alt="Producto 4">
-      <h3>Producto 4</h3>
-      <p>Descripción del producto 4.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-  
-     <div class="producto5">
-      <img src="productos/producto5.jpg" alt="Producto 5">
-      <h3>Producto 5</h3>
-      <p>Descripción del producto 5.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-     <div class="producto6">
-      <img src="productos/producto6.jpg" alt="Producto 6">
-      <h3>Producto 6</h3>
-      <p>Descripción del producto 6.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-     <div class="producto7">
-      <img src="productos/producto7.jpg" alt="Producto 7">
-      <h3>Producto 7</h3>
-      <p>Descripción del producto 7.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-    
-     <div class="producto8">
-      <img src="productos/producto8.jpg" alt="Producto 8">
-      <h3>Producto 8</h3>
-      <p>Descripción del producto 8.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto9">
-      <img src="productos/producto9.jpg" alt="Producto 9">
-      <h3>Producto 9</h3>
-      <p>Descripción del producto 9.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto10">
-      <img src="productos/producto10.jpg" alt="Producto 10">
-      <h3>Producto 10</h3>
-      <p>Descripción del producto 10.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto11">
-      <img src="productos/producto11.jpg" alt="Producto 11">
-      <h3>Producto 11</h3>
-      <p>Descripción del producto 11.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto12">
-      <img src="productos/producto12.jpg" alt="Producto 12">
-      <h3>Producto 12</h3>
-      <p>Descripción del producto 12.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-    
-    <div class="producto13">
-      <img src="productos/producto13.jpg" alt="Producto 13">
-      <h3>Producto 13</h3>
-      <p>Descripción del producto 13.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto14">
-      <img src="productos/producto14.jpg" alt="Producto 14">
-      <h3>Producto 14</h3>
-      <p>Descripción del producto 14.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto15">
-      <img src="productos/producto15.jpg" alt="Producto 15">
-      <h3>Producto 15</h3>
-      <p>Descripción del producto 15.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-
-    <div class="producto16">
-      <img src="productos/producto16.jpg" alt="Producto 16">
-      <h3>Producto 16</h3>
-      <p>Descripción del producto 16.</p>
-      <button class="btn-comprar">Comprar</button>
-    </div>
-  </div>
 </body>
 </html>
