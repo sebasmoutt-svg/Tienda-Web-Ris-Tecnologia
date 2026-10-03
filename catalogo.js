@@ -16,11 +16,11 @@ window.productosCatalogo = [
 		name: "Kit de carga rápida Premium: cable 240W Pro 90° + cargador GaN 30W",
 		price: null,
 		images: [
-			"productos/Kit De Carga Rápida Premium Cable 240W Pro 90° + Cargador GaN 30W/Kit De Carga Rápida Premium Cable 240W Pro 90° + Cargador GaN 30W_1.jpeg",
-			"productos/Kit De Carga Rápida Premium Cable 240W Pro 90° + Cargador GaN 30W/Kit De Carga Rápida Premium Cable 240W Pro 90° + Cargador GaN 30W_2.jpeg",
-			"productos/Kit De Carga Rápida Premium Cable 240W Pro 90° + Cargador GaN 30W/pasted-image.jpeg",
-			"productos/Kit De Carga Rápida Premium Cable 240W Pro 90° + Cargador GaN 30W/pasted-image (2).jpeg",
-			"productos/Kit De Carga Rápida Premium Cable 240W Pro 90° + Cargador GaN 30W/pasted-image (3).jpeg"
+			"productos/kit-240w-1.jpeg",
+			"productos/kit-240w-2.jpeg",
+			"productos/kit-240w-3.jpeg",
+			"productos/kit-240w-4.jpeg",
+			"productos/kit-240w-5.jpeg"
 		],
 		description: "Kit de cable trenzado Tipo-C de 1.5 metros y 240 W con soporte para teléfono a 90° y rotación de 360°, más cargador GaN de 30 W.\n\nIncluye puerto Tipo-C y USB, cable ultra resistente y carga rápida para teléfonos y laptops. Ideal para gaming, trabajo y uso diario. Incluye cargador y cable de 1.5 m."
 	},
