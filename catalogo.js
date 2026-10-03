@@ -169,8 +169,6 @@ window.productosCatalogo = [
 		name: "Lámpara G inteligente Mini con Bluetooth y carga inalámbrica",
 		price: null,
 		images: [
-			"productos/Lámpara G Inteligente/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth_1.jpeg",
-			"productos/Lámpara G Inteligente/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth_2.jpeg",
 			"productos/Lámpara G Inteligente/pasted-image.jpeg",
 			"productos/Lámpara G Inteligente/pasted-image (2).jpeg"
 		],

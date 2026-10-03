@@ -122,7 +122,7 @@ cartLayer.innerHTML = `
 			<button class="carrito-cerrar" type="button" aria-label="Cerrar carrito">&times;</button>
 		</header>
 		<div class="carrito-lineas"></div>
-		<div class="carrito-vacio" hidden>Tu carrito está vacío.<a href="tienda.html#productos">Seguir comprando</a></div>
+		<div class="carrito-vacio" hidden>Tu carrito está vacío.<a href="index.html#productos">Seguir comprando</a></div>
 		<footer class="carrito-pie">
 			<div class="carrito-subtotal"><span>Subtotal</span><strong>$0.00 USD</strong></div>
 			<p class="carrito-nota" hidden>El subtotal no incluye productos por cotizar; el total se confirma por WhatsApp.</p>
@@ -232,9 +232,13 @@ window.addEventListener("storage", renderCart);
 renderCart();
 
 function createProductCard(product) {
-	const card = document.createElement("article");
+	const card = document.createElement("a");
 	card.className = "producto-card";
 	card.dataset.productName = product.name.toLocaleLowerCase("es");
+	card.href = `producto.html?id=${encodeURIComponent(product.id)}`;
+	card.target = "_blank";
+	card.rel = "noopener";
+	card.setAttribute("aria-label", `Abrir ${product.name}`);
 
 	const imageFrame = document.createElement("div");
 	imageFrame.className = "producto-foto";
@@ -254,14 +258,11 @@ function createProductCard(product) {
 	const price = document.createElement("p");
 	price.className = "producto-precio";
 	price.textContent = formatPrice(product.price);
-	const buyLink = document.createElement("a");
-	buyLink.className = "btn-comprar";
-	buyLink.href = `producto.html?id=${encodeURIComponent(product.id)}`;
-	buyLink.target = "_blank";
-	buyLink.rel = "noopener";
-	buyLink.textContent = "Comprar";
+	const buyLabel = document.createElement("span");
+	buyLabel.className = "btn-comprar";
+	buyLabel.textContent = "Comprar";
 
-	card.append(imageFrame, title, price, buyLink);
+	card.append(imageFrame, title, price, buyLabel);
 	return card;
 }
 
@@ -298,7 +299,7 @@ document.querySelectorAll(".input-busqueda").forEach((searchInput) => {
 	if (productGrid) return;
 	searchInput.addEventListener("keydown", (event) => {
 		if (event.key === "Enter" && searchInput.value.trim()) {
-			location.href = `tienda.html?buscar=${encodeURIComponent(searchInput.value.trim())}#productos`;
+			location.href = `index.html?buscar=${encodeURIComponent(searchInput.value.trim())}#productos`;
 		}
 	});
 });
@@ -424,7 +425,7 @@ if (checkoutSummary) {
 		empty.className = "pago-vacio";
 		empty.textContent = "Todavía no agregaste productos al carrito.";
 		checkoutSummary.append(empty);
-		checkoutLink.href = "tienda.html#productos";
+		checkoutLink.href = "index.html#productos";
 		checkoutLink.textContent = "Volver a productos";
 		checkoutLink.classList.add("deshabilitado");
 	}
