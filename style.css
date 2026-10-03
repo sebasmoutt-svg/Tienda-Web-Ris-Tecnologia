@@ -451,23 +451,6 @@
 
 }
 
-.destacado {
-  color: rgb(0, 0, 0);
-  font-size: 30px;
-  left: 30px;
-  margin: 3rem;
-}
-
-.productos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px;
-}
-.productos > * {
-  margin: 10px;
-}
-
 .catalogo {
   padding: 8px 5vw 64px;
   scroll-margin-top: 76px;
@@ -475,8 +458,16 @@
 
 .destacado {
   margin: 2rem 0 1.5rem;
-  font-size: 30px;
-  font-weight: 700;
+  color: #000;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.destacado.mas-vendidos {
+  margin-top: 4rem;
 }
 
 .productos {
@@ -499,7 +490,7 @@
 
   .destacado {
     margin: 1.5rem 0 1rem;
-    font-size: 25px;
+    font-size: 34px;
   }
 
   .productos {

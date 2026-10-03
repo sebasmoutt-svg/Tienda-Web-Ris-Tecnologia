@@ -231,38 +231,54 @@ window.addEventListener("ris-cart-updated", renderCart);
 window.addEventListener("storage", renderCart);
 renderCart();
 
+function createProductCard(product) {
+	const card = document.createElement("article");
+	card.className = "producto-card";
+	card.dataset.productName = product.name.toLocaleLowerCase("es");
+
+	const imageFrame = document.createElement("div");
+	imageFrame.className = "producto-foto";
+	const primaryImage = document.createElement("img");
+	primaryImage.src = assetUrl(product.images[0]);
+	primaryImage.alt = product.name;
+	primaryImage.loading = "eager";
+	const secondaryImage = document.createElement("img");
+	secondaryImage.src = assetUrl(product.images[1] || product.images[0]);
+	secondaryImage.alt = "";
+	secondaryImage.className = "producto-foto-secundaria";
+	secondaryImage.loading = "eager";
+	imageFrame.append(primaryImage, secondaryImage);
+
+	const title = document.createElement("h2");
+	title.textContent = product.name;
+	const price = document.createElement("p");
+	price.className = "producto-precio";
+	price.textContent = formatPrice(product.price);
+	const buyLink = document.createElement("a");
+	buyLink.className = "btn-comprar";
+	buyLink.href = `producto.html?id=${encodeURIComponent(product.id)}`;
+	buyLink.target = "_blank";
+	buyLink.rel = "noopener";
+	buyLink.textContent = "Comprar";
+
+	card.append(imageFrame, title, price, buyLink);
+	return card;
+}
+
+const bestSellerIds = [
+	"soporte-portatil-nogal",
+	"proyector-hy300",
+	"lampara-g-mini",
+	"consola-game-stick-m8",
+	"reloj-hk10-pro-max"
+];
+const bestSellerGrid = document.querySelector(".productos-mas-vendidos");
+
 if (productGrid) {
-	catalog.forEach((product) => {
-		const card = document.createElement("article");
-		card.className = "producto-card";
-
-		const imageFrame = document.createElement("div");
-		imageFrame.className = "producto-foto";
-		const primaryImage = document.createElement("img");
-		primaryImage.src = assetUrl(product.images[0]);
-		primaryImage.alt = product.name;
-		primaryImage.loading = "eager";
-		const secondaryImage = document.createElement("img");
-		secondaryImage.src = assetUrl(product.images[1] || product.images[0]);
-		secondaryImage.alt = "";
-		secondaryImage.className = "producto-foto-secundaria";
-		secondaryImage.loading = "eager";
-		imageFrame.append(primaryImage, secondaryImage);
-
-		const title = document.createElement("h2");
-		title.textContent = product.name;
-		const price = document.createElement("p");
-		price.className = "producto-precio";
-		price.textContent = formatPrice(product.price);
-		const buyLink = document.createElement("a");
-		buyLink.className = "btn-comprar";
-		buyLink.href = `producto.html?id=${encodeURIComponent(product.id)}`;
-		buyLink.target = "_blank";
-		buyLink.rel = "noopener";
-		buyLink.textContent = "Comprar";
-
-		card.append(imageFrame, title, price, buyLink);
-		productGrid.append(card);
+	catalog.forEach((product) => productGrid.append(createProductCard(product)));
+	bestSellerIds.forEach((id) => {
+		const product = catalog.find((item) => item.id === id);
+		if (product) bestSellerGrid?.append(createProductCard(product));
 	});
 
 	const searchInput = document.querySelector(".input-busqueda");
@@ -270,8 +286,8 @@ if (productGrid) {
 	if (searchInput) searchInput.value = searchQuery;
 	function filterProducts() {
 		const query = searchInput.value.trim().toLocaleLowerCase("es");
-		productGrid.querySelectorAll(".producto-card").forEach((card, index) => {
-			card.hidden = !catalog[index].name.toLocaleLowerCase("es").includes(query);
+		document.querySelectorAll(".productos .producto-card").forEach((card) => {
+			card.hidden = !card.dataset.productName.includes(query);
 		});
 	}
 	filterProducts();

@@ -31,11 +31,11 @@ window.productosCatalogo = [
 		images: [
 			"productos/d11-1.jpeg",
 			"productos/d11-2.jpeg",
-			"productos/Control Gamepad  Telescópico D11  para Juegos Móviles BT, Extensible con Giroscopio de 6 Ejes y Vibración para Teléfono Móvil Android iOS P3/pasted-image.jpeg",
-			"productos/Control Gamepad  Telescópico D11  para Juegos Móviles BT, Extensible con Giroscopio de 6 Ejes y Vibración para Teléfono Móvil Android iOS P3/pasted-image (1).jpeg",
-			"productos/Control Gamepad  Telescópico D11  para Juegos Móviles BT, Extensible con Giroscopio de 6 Ejes y Vibración para Teléfono Móvil Android iOS P3/pasted-image (2).jpeg",
-			"productos/Control Gamepad  Telescópico D11  para Juegos Móviles BT, Extensible con Giroscopio de 6 Ejes y Vibración para Teléfono Móvil Android iOS P3/pasted-image (3).jpeg",
-			"productos/Control Gamepad  Telescópico D11  para Juegos Móviles BT, Extensible con Giroscopio de 6 Ejes y Vibración para Teléfono Móvil Android iOS P3/pasted-image (4).jpeg"
+			"productos/Control Gamepad  Telescópico D11/pasted-image.jpeg",
+			"productos/Control Gamepad  Telescópico D11/pasted-image (1).jpeg",
+			"productos/Control Gamepad  Telescópico D11/pasted-image (2).jpeg",
+			"productos/Control Gamepad  Telescópico D11/pasted-image (3).jpeg",
+			"productos/Control Gamepad  Telescópico D11/pasted-image (4).jpeg"
 		],
 		description: "Convierte tu teléfono en una consola. Gamepad telescópico con conexión Bluetooth, giroscopio de 6 ejes y vibración de doble motor.\n\nCompatible con Android, iOS, PC y Switch. Incluye joystick 3D, gatillos Hall de alta sensibilidad, botones traseros programables M1 y M2 y batería de 400 mAh. Se ajusta a teléfonos de 143 a 260 mm. Disponible en negro o blanco. Ideal para juegos móviles, shooters, carreras y juegos en la nube."
 	},
@@ -46,11 +46,11 @@ window.productosCatalogo = [
 		images: [
 			"productos/ab01-1.jpeg",
 			"productos/ab01-2.jpg",
-			"productos/Control Gamepad AB01 Extensible Teléfono AndroidSwitchIOS/pasted-image.jpeg",
-			"productos/Control Gamepad AB01 Extensible Teléfono AndroidSwitchIOS/pasted-image (1).jpeg",
-			"productos/Control Gamepad AB01 Extensible Teléfono AndroidSwitchIOS/pasted-image (2).jpeg",
-			"productos/Control Gamepad AB01 Extensible Teléfono AndroidSwitchIOS/pasted-image (3).jpeg",
-			"productos/Control Gamepad AB01 Extensible Teléfono AndroidSwitchIOS/pasted-image (4).jpeg"
+			"productos/Control Gamepad AB01 Extensible/pasted-image.jpeg",
+			"productos/Control Gamepad AB01 Extensible/pasted-image (1).jpeg",
+			"productos/Control Gamepad AB01 Extensible/pasted-image (2).jpeg",
+			"productos/Control Gamepad AB01 Extensible/pasted-image (3).jpeg",
+			"productos/Control Gamepad AB01 Extensible/pasted-image (4).jpeg"
 		],
 		description: "Convierte tu celular en una consola y mejora tu rendimiento en cada partida.\n\nCompatible con Android y iPhone, conexión Bluetooth estable y diseño extensible tipo consola. Ofrece mayor precisión y control, entrada para audífonos de 3.5 mm y batería de litio de 400 mAh. Juega con más comodidad y control que con la pantalla táctil."
 	},
@@ -97,11 +97,11 @@ window.productosCatalogo = [
 		name: "Soporte portátil de metal y nogal para teléfono y tablet",
 		price: 10,
 		images: [
-			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable_1.jpeg",
-			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable_2.jpeg",
-			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable/pasted-image.jpeg",
-			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable/pasted-image (1).jpeg",
-			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable/pasted-image (2).jpeg"
+			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable_1.jpeg",
+			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable_2.jpeg",
+			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/pasted-image.jpeg",
+			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/pasted-image (1).jpeg",
+			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/pasted-image (2).jpeg"
 		],
 		description: "Soporte premium que combina madera de nogal y metal sólido. Su ángulo regulable es práctico para videollamadas, lectura o películas.\n\nEs mini, plegable y portátil. La base firme sostiene smartphones de cualquier tamaño y tablets medianas."
 	},
@@ -133,8 +133,8 @@ window.productosCatalogo = [
 		name: "Consola Game Stick M8 Pro 4K Retro - 20.000 juegos, 64 GB",
 		price: 25,
 		images: [
-			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb_1.jpeg",
-			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb_2.jpeg",
+			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image (2).jpeg",
+			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image (1).jpeg",
 			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image.jpeg",
 			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image (1).jpeg",
 			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image (2).jpeg"
@@ -169,10 +169,10 @@ window.productosCatalogo = [
 		name: "Lámpara G inteligente Mini con Bluetooth y carga inalámbrica",
 		price: null,
 		images: [
-			"productos/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth_1.jpeg",
-			"productos/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth_2.jpeg",
-			"productos/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth/pasted-image.jpeg",
-			"productos/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth/pasted-image (2).jpeg"
+			"productos/Lámpara G Inteligente/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth_1.jpeg",
+			"productos/Lámpara G Inteligente/Lámpara G Inteligente  Mini +Nueva + led + Altavoz + Carga inalámbrica + Bluetooth_2.jpeg",
+			"productos/Lámpara G Inteligente/pasted-image.jpeg",
+			"productos/Lámpara G Inteligente/pasted-image (2).jpeg"
 		],
 		description: "Lámpara inteligente mini multifuncional con reloj despertador, altavoz Bluetooth, lámpara LED con batería recargable y carga inalámbrica para celular.\n\nTamaño: 15.6 x 15 x 5.6 cm. Incluye cable USB Tipo-C y manual. Ideal para la mesa de noche o el escritorio."
 	},
