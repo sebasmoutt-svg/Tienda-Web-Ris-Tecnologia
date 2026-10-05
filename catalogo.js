@@ -100,7 +100,6 @@ window.productosCatalogo = [
 			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable_1.jpeg",
 			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable_2.jpeg",
 			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/pasted-image.jpeg",
-			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/pasted-image (1).jpeg",
 			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/pasted-image (2).jpeg"
 		],
 		description: "Soporte premium que combina madera de nogal y metal sólido. Su ángulo regulable es práctico para videollamadas, lectura o películas.\n\nEs mini, plegable y portátil. La base firme sostiene smartphones de cualquier tamaño y tablets medianas."
@@ -135,9 +134,7 @@ window.productosCatalogo = [
 		images: [
 			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image (2).jpeg",
 			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image (1).jpeg",
-			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image.jpeg",
-			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image (1).jpeg",
-			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image (2).jpeg"
+			"productos/Consola Game stick M8 Pro 4K Retro ver 2025 para Tv y Teléfono 20 mil juegos 64 Gb/pasted-image.jpeg"
 		],
 		description: "Consola de videojuegos portátil Ye M8 Pro con más de 20.000 juegos clásicos, 15 emuladores y tarjeta TF de 64 GB.\n\nSe conecta por HDMI a TV, monitor o proyector. Incluye dos controles inalámbricos de 2.4 GHz; cada control requiere dos baterías AAA, no incluidas. No necesita internet ni descargas para jugar."
 	},
