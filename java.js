@@ -69,6 +69,7 @@ function formatPrice(price) {
 
 const cartStorageKey = "ris-cart";
 
+// localStorage conserva el carrito al cerrar y volver a abrir el navegador.
 function readCart() {
 	try {
 		const savedCart = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
@@ -126,6 +127,7 @@ cartLayer.innerHTML = `
 		<footer class="carrito-pie">
 			<div class="carrito-subtotal"><span>Subtotal</span><strong>$0.00 USD</strong></div>
 			<p class="carrito-nota" hidden>El subtotal no incluye productos por cotizar; el total se confirma por WhatsApp.</p>
+			<button class="carrito-vaciar" type="button">Vaciar carrito</button>
 			<a class="btn-comprar carrito-pagar" href="pago.html" target="_blank" rel="noopener">Pagar pedido</a>
 		</footer>
 	</aside>`;
@@ -223,6 +225,8 @@ function closeCart() {
 
 document.querySelectorAll(".btn-carrito").forEach((button) => button.addEventListener("click", openCart));
 cartLayer.querySelector(".carrito-cerrar").addEventListener("click", closeCart);
+// Vaciar usa el mismo guardado que el resto de cambios del carrito.
+cartLayer.querySelector(".carrito-vaciar").addEventListener("click", () => saveCart([]));
 cartLayer.querySelector(".carrito-fondo").addEventListener("click", closeCart);
 document.addEventListener("keydown", (event) => {
 	if (event.key === "Escape") closeCart();
@@ -273,10 +277,22 @@ const bestSellerIds = [
 	"consola-game-stick-m8",
 	"reloj-hk10-pro-max"
 ];
+const usefulTechnologyIds = [
+	"proyector-hy300",
+	"consola-game-stick-m8",
+	"lampara-g-grande",
+	"lampara-g-mini",
+	"lampara-pizarra-led"
+];
+const usefulTechnologyGrid = document.querySelector(".productos-tecnologia-util");
 const bestSellerGrid = document.querySelector(".productos-mas-vendidos");
 
 if (productGrid) {
 	catalog.forEach((product) => productGrid.append(createProductCard(product)));
+	usefulTechnologyIds.forEach((id) => {
+		const product = catalog.find((item) => item.id === id);
+		if (product) usefulTechnologyGrid?.append(createProductCard(product));
+	});
 	bestSellerIds.forEach((id) => {
 		const product = catalog.find((item) => item.id === id);
 		if (product) bestSellerGrid?.append(createProductCard(product));
@@ -285,10 +301,15 @@ if (productGrid) {
 	const searchInput = document.querySelector(".input-busqueda");
 	const searchQuery = new URLSearchParams(location.search).get("buscar") || "";
 	if (searchInput) searchInput.value = searchQuery;
+	// Oculta cada bloque cuando la búsqueda no deja productos visibles.
 	function filterProducts() {
-		const query = searchInput.value.trim().toLocaleLowerCase("es");
-		document.querySelectorAll(".productos .producto-card").forEach((card) => {
-			card.hidden = !card.dataset.productName.includes(query);
+		const query = searchInput?.value.trim().toLocaleLowerCase("es") || "";
+		document.querySelectorAll(".catalogo-seccion").forEach((section) => {
+			const cards = section.querySelectorAll(".producto-card");
+			cards.forEach((card) => {
+				card.hidden = !card.dataset.productName.includes(query);
+			});
+			section.hidden = ![...cards].some((card) => !card.hidden);
 		});
 	}
 	filterProducts();
@@ -383,7 +404,7 @@ if (checkoutSummary) {
 	const totals = cartTotals(items);
 	const subtotal = document.querySelector(".pago-subtotal");
 	const pendingNote = document.querySelector(".pago-nota-precio");
-	const messageLines = ["Hola, quiero finalizar este pedido en RisTecnologia:"];
+	const messageLines = [];
 
 	checkoutSummary.replaceChildren();
 	items.forEach((item) => {
@@ -402,11 +423,11 @@ if (checkoutSummary) {
 		lineTotal.className = "pago-item-total";
 		if (item.product.price === null) {
 			lineTotal.textContent = "Por cotizar";
-			messageLines.push(`- ${item.quantity} x ${item.product.name}: precio por confirmar`);
+			messageLines.push(`• ${item.quantity} × ${item.product.name} — precio por confirmar`);
 		} else {
 			const total = item.product.price * item.quantity;
 			lineTotal.textContent = `$${total.toFixed(2)} USD`;
-			messageLines.push(`- ${item.quantity} x ${item.product.name}: $${item.product.price.toFixed(2)} c/u = $${total.toFixed(2)} USD`);
+			messageLines.push(`• ${item.quantity} × ${item.product.name} — $${total.toFixed(2)} USD`);
 		}
 		detail.append(name, units);
 		row.append(image, detail, lineTotal);
@@ -416,10 +437,14 @@ if (checkoutSummary) {
 	subtotal.textContent = `$${totals.subtotal.toFixed(2)} USD`;
 	pendingNote.textContent = totals.pendingPrice ? "Hay productos por cotizar; el monto final se confirma por WhatsApp." : "";
 	if (items.length) {
-		messageLines.push(`Subtotal de productos con precio: $${totals.subtotal.toFixed(2)} USD`);
-		if (totals.pendingPrice) messageLines.push("Algunos productos requieren confirmar su precio.");
-		messageLines.push("¿Me ayudan a confirmar disponibilidad y envío?");
-		checkoutLink.href = `https://wa.me/584123260875?text=${encodeURIComponent(messageLines.join("\n"))}`;
+		// WhatsApp recibe una línea por producto y un total claro para el cliente.
+		const orderMessage = [
+			"Hola, quiero realizar este pedido en RIS Tecnología:",
+			messageLines.join("\n\n"),
+			`*${totals.pendingPrice ? "Total parcial" : "Total"}: $${totals.subtotal.toFixed(2)} USD*`,
+			"¿Me confirman disponibilidad y costo de envío?"
+		].join("\n\n");
+		checkoutLink.href = `https://wa.me/584123260875?text=${encodeURIComponent(orderMessage)}`;
 	} else {
 		const empty = document.createElement("p");
 		empty.className = "pago-vacio";

@@ -26,6 +26,7 @@
       <a class="btn-menu" href="#inicio">Inicio</a>
       <a class="btn-menu" href="#productos">Productos</a>
       <a class="btn-menu" href="#contacto">Contacto</a>
+      <a class="btn-menu" href="que-somos.html">¿Qué somos?</a>
     </nav>
 
     <button class="menu-fondo" type="button" aria-label="Cerrar menú"></button>
@@ -36,7 +37,10 @@
     </a>
 
     <div class="elementos-derecha">
-      <input type="text" placeholder="Buscar..." class="input-busqueda">
+      <label class="campo-busqueda">
+        <span class="icono-busqueda" aria-hidden="true">⌕</span>
+        <input type="search" placeholder="Buscar..." class="input-busqueda" aria-label="Buscar productos">
+      </label>
       <button class="btn-carrito" type="button" aria-label="Abrir carrito" title="Carrito de compras">
         <span aria-hidden="true">&#128722;</span>
         <span class="cart-count" hidden>0</span>
@@ -75,10 +79,18 @@
   </main>
 
   <section class="catalogo" id="productos">
-    <h2 class="destacado">Nuevo y Destacado</h2>
-    <div class="productos" aria-live="polite"></div>
-    <h2 class="destacado mas-vendidos">Lo más vendido</h2>
-    <div class="productos productos-mas-vendidos" aria-live="polite"></div>
+    <section class="catalogo-seccion" aria-labelledby="titulo-novedades">
+      <h2 class="destacado" id="titulo-novedades">Nuevo y Destacado</h2>
+      <div class="productos" aria-live="polite"></div>
+    </section>
+    <section class="catalogo-seccion" aria-labelledby="titulo-tecnologia-util">
+      <h2 class="destacado" id="titulo-tecnologia-util">Tecnología útil para tu día a día</h2>
+      <div class="productos productos-tecnologia-util" aria-live="polite"></div>
+    </section>
+    <section class="catalogo-seccion" aria-labelledby="titulo-mas-vendidos">
+      <h2 class="destacado mas-vendidos" id="titulo-mas-vendidos">Lo más vendido</h2>
+      <div class="productos productos-mas-vendidos" aria-live="polite"></div>
+    </section>
   </section>
 
   <footer class="site-footer" id="contacto">
@@ -95,6 +107,10 @@
         <h2>Atención</h2>
         <a href="https://wa.me/584123260875" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
         <a href="https://wa.me/c/584123260875" target="_blank" rel="noopener">Ver catálogo de WhatsApp</a>
+      </div>
+      <div class="footer-columna">
+        <h2>Sede</h2>
+        <p>Montalbán 2<br>Caracas</p>
       </div>
       <div class="footer-columna footer-redes">
         <h2>Síguenos</h2>

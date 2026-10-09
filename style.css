@@ -6,6 +6,13 @@
   font-family: Arial, sans-serif;
 }
 
+/* Colores compartidos por los botones y los píxeles decorativos. */
+:root {
+  --pixel-cian: #63c8d5;
+  --pixel-rosa: #d84fc3;
+  --pixel-lila: #8b78c6;
+}
+
 /* 1. ESTILOS DE LA BARRA FIJA */
 .barra-superior {
   position: fixed;
@@ -44,18 +51,21 @@
 }
 
 .btn-menu {
-  background-color: rgba(24, 14, 39, 0.48);
+  background: transparent;
   color: white;
-  border: 1px solid rgba(225, 174, 223, 0.28);
-  padding: 8px 16px;
-  border-radius: 6px;
+  border: 0;
+  padding: 8px 6px;
+  border-radius: 0;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.2s ease;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .btn-menu:hover {
-  background-color: #81275f;
+  color: #e8b4dd;
 }
 
 /* 3. SECCIÓN CENTRO: LOGO */
@@ -84,23 +94,46 @@
   gap: 10px;
 }
 
-.input-busqueda {
-  padding: 8px 12px;
-  border-radius: 6px;
+/* El label reúne el icono y el input en una sola barra redondeada. */
+.campo-busqueda {
+  display: flex;
+  width: 180px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
   border: 1px solid rgba(225, 174, 223, 0.28);
-  background-color: rgba(24, 14, 39, 0.4);
+  border-radius: 999px;
+  background-color: rgba(216, 79, 195, 0.2);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.icono-busqueda {
+  color: #e6bfdc;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.input-busqueda {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 0;
+  border: 0;
+  background: transparent;
   color: white;
   outline: none;
-  width: 180px;
+  font-family: "Oxanium", sans-serif;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .input-busqueda::placeholder {
-  color: #94a3b8;
+  color: #ddc3d7;
 }
 
-.input-busqueda:focus {
+.campo-busqueda:focus-within {
   border-color: #e084cf;
+  background-color: rgba(216, 79, 195, 0.32);
 }
 
 .btn-carrito {
@@ -468,11 +501,116 @@
 }
 
 .catalogo {
+  position: relative;
+  isolation: isolate;
   padding: 8px 5vw 64px;
   scroll-margin-top: 76px;
 }
 
+/* Los mosaicos CSS decoran sin sumar elementos HTML repetidos. */
+.catalogo::before,
+.catalogo::after,
+.catalogo-seccion::before,
+.catalogo-seccion::after,
+.carrito-panel::before,
+.carrito-panel::after,
+.pago-panel::before,
+.pago-panel::after,
+.detalle-producto::before,
+.detalle-producto::after {
+  position: absolute;
+  z-index: 0;
+  width: 48px;
+  height: 40px;
+  background:
+    linear-gradient(var(--pixel-cian) 0 0) 0 8px / 8px 8px,
+    linear-gradient(var(--pixel-rosa) 0 0) 16px 8px / 8px 8px,
+    linear-gradient(var(--pixel-lila) 0 0) 24px 0 / 8px 8px,
+    linear-gradient(var(--pixel-rosa) 0 0) 8px 16px / 8px 8px,
+    linear-gradient(var(--pixel-cian) 0 0) 24px 24px / 8px 8px,
+    linear-gradient(var(--pixel-lila) 0 0) 40px 16px / 8px 8px;
+  background-repeat: no-repeat;
+  content: "";
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.catalogo::before {
+  top: 20px;
+  right: 4vw;
+}
+
+.catalogo::after {
+  bottom: 18px;
+  left: 3vw;
+}
+
+.catalogo-seccion {
+  position: relative;
+  isolation: isolate;
+  padding: 10px 0 24px;
+}
+
+.catalogo-seccion::before {
+  top: 10px;
+  right: 2%;
+}
+
+.catalogo-seccion::after {
+  bottom: 12px;
+  left: 5%;
+  transform: rotate(180deg);
+}
+
+.catalogo > *,
+.catalogo-seccion > *,
+.carrito-panel > *,
+.pago-panel > *,
+.detalle-producto > * {
+  position: relative;
+  z-index: 1;
+}
+
+.carrito-panel::before {
+  top: 18px;
+  right: 66px;
+}
+
+.carrito-panel::after {
+  right: 18px;
+  bottom: 110px;
+  transform: rotate(90deg);
+}
+
+.pago-panel::before {
+  top: 0;
+  right: 14px;
+}
+
+.pago-panel::after {
+  bottom: 24px;
+  left: 18px;
+  transform: rotate(180deg);
+}
+
+.detalle-producto {
+  position: relative;
+  isolation: isolate;
+}
+
+.detalle-producto::before {
+  top: 36px;
+  right: 2vw;
+}
+
+.detalle-producto::after {
+  bottom: 34px;
+  left: 2vw;
+  transform: rotate(180deg);
+}
+
 .destacado {
+  position: relative;
   margin: 2rem 0 1.5rem;
   color: #000;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -480,6 +618,36 @@
   font-weight: 900;
   line-height: 0.95;
   text-transform: uppercase;
+}
+
+.destacado::before,
+.destacado::after {
+  position: absolute;
+  bottom: -12px;
+  height: 12px;
+  background-repeat: no-repeat;
+  content: "";
+  opacity: 0.82;
+  pointer-events: none;
+}
+
+.destacado::before {
+  right: 68px;
+  width: 24px;
+  background:
+    linear-gradient(var(--pixel-cian) 0 0) 0 6px / 6px 6px,
+    linear-gradient(var(--pixel-rosa) 0 0) 6px 0 / 6px 6px,
+    linear-gradient(var(--pixel-lila) 0 0) 18px 6px / 6px 6px;
+}
+
+.destacado::after {
+  right: 8px;
+  width: 48px;
+  background:
+    linear-gradient(var(--pixel-rosa) 0 0) 0 0 / 6px 6px,
+    linear-gradient(var(--pixel-cian) 0 0) 12px 6px / 6px 6px,
+    linear-gradient(var(--pixel-lila) 0 0) 24px 0 / 6px 6px,
+    linear-gradient(var(--pixel-rosa) 0 0) 42px 6px / 6px 6px;
 }
 
 .destacado.mas-vendidos {
@@ -593,7 +761,8 @@
   border-radius: 9px;
   background: #d84fc3;
   color: #fff;
-  font: inherit;
+  font-family: "Oxanium", sans-serif;
+  font-size: 14px;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
@@ -818,14 +987,31 @@
   min-height: 50px;
 }
 
+.carrito-vaciar {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 12px;
+  border: 1px solid #d8d2da;
+  border-radius: 6px;
+  background: #fff;
+  color: #5b293f;
+  cursor: pointer;
+  font: inherit;
+}
+
+.carrito-vaciar:hover {
+  background: #f7f3f6;
+}
+
 .site-footer {
   color: #fff;
   background: linear-gradient(120deg, #251831 0%, #482047 54%, #67204f 100%);
 }
 
+/* La marca y las cuatro columnas de información comparten una fila. */
 .footer-contenido {
   display: grid;
-  grid-template-columns: 1.1fr 1.2fr 1.2fr 1fr;
+  grid-template-columns: 1.1fr repeat(4, 1fr);
   gap: 34px;
   width: min(1180px, 90vw);
   margin: 0 auto;
@@ -862,6 +1048,12 @@
   line-height: 1.5;
   overflow-wrap: anywhere;
   text-decoration: none;
+}
+
+.footer-columna p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .footer-columna a:hover {
@@ -923,6 +1115,8 @@
 }
 
 .pago-panel {
+  position: relative;
+  isolation: isolate;
   padding: clamp(22px, 4vw, 42px);
   border: 1px solid #e5dfe8;
   border-radius: 14px;
@@ -1019,9 +1213,10 @@
   justify-content: center;
   margin-top: 18px;
   padding: 12px 18px;
-  border-radius: 9px;
+  border-radius: 4px;
   background: #168c62;
   color: white;
+  font-family: "Oxanium", sans-serif;
   font-weight: 800;
   text-align: center;
   text-decoration: none;
@@ -1235,6 +1430,10 @@
 }
 
 @media (max-width: 700px) {
+  .pago-panel::before {
+    top: -46px;
+  }
+
   .catalogo {
     padding: 4px 18px 42px;
   }
@@ -1342,6 +1541,14 @@
   }
 }
 
+/* En tablet, tres columnas dan espacio a la nueva sede y las redes. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .footer-contenido {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 22px;
+  }
+}
+
 @media (max-width: 420px) {
   .productos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1385,5 +1592,319 @@
   #productos,
   #contacto {
     scroll-margin-top: 192px;
+  }
+}
+
+/* Página de marca: la identidad y la información se leen por bloques. */
+.pagina-quienes-somos {
+  min-height: 100vh;
+  padding-top: 72px;
+  background: #f7f8fa;
+}
+
+.nosotros-contenido {
+  width: min(1120px, 90vw);
+  margin: 0 auto;
+  padding: 46px 0 68px;
+}
+
+.nosotros-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 172px minmax(0, 1fr);
+  align-items: center;
+  gap: 38px;
+  overflow: hidden;
+  padding: 18px 30px 48px;
+  border-bottom: 1px solid #dce1e8;
+}
+
+.nosotros-hero::before,
+.nosotros-hero::after {
+  position: absolute;
+  z-index: 0;
+  width: 48px;
+  height: 40px;
+  background:
+    linear-gradient(var(--pixel-cian) 0 0) 0 8px / 8px 8px,
+    linear-gradient(var(--pixel-rosa) 0 0) 16px 8px / 8px 8px,
+    linear-gradient(var(--pixel-lila) 0 0) 24px 0 / 8px 8px,
+    linear-gradient(var(--pixel-rosa) 0 0) 8px 16px / 8px 8px,
+    linear-gradient(var(--pixel-cian) 0 0) 24px 24px / 8px 8px,
+    linear-gradient(var(--pixel-lila) 0 0) 40px 16px / 8px 8px;
+  background-repeat: no-repeat;
+  content: "";
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.nosotros-hero::before {
+  top: 6px;
+  right: 8px;
+}
+
+.nosotros-hero::after {
+  bottom: 12px;
+  left: 4px;
+  transform: rotate(180deg);
+}
+
+.nosotros-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.nosotros-logo {
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(38, 27, 48, 0.16));
+}
+
+.nosotros-ceja {
+  margin-bottom: 8px;
+  color: #9b3988;
+  font-family: "Oxanium", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.nosotros-presentacion h1 {
+  color: #24182d;
+  font-family: "Oxanium", sans-serif;
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+.nosotros-eslogan {
+  margin: 12px 0 8px;
+  color: #28556b;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.nosotros-presentacion > p:not(.nosotros-ceja, .nosotros-eslogan) {
+  max-width: 720px;
+  color: #515665;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.nosotros-enlace {
+  width: fit-content;
+  margin-top: 20px;
+}
+
+.nosotros-pilares,
+.nosotros-valores {
+  padding-top: 46px;
+}
+
+.nosotros-titulo-seccion {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.nosotros-titulo-seccion h2,
+.nosotros-proposito h2 {
+  color: #24182d;
+  font-family: "Oxanium", sans-serif;
+  font-size: 27px;
+  line-height: 1.25;
+}
+
+.nosotros-titulo-seccion > p:last-child,
+.nosotros-proposito article > p:last-child {
+  margin-top: 10px;
+  color: #5f6472;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.pilares-lista {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.pilar {
+  padding: 18px 6px 8px;
+  border-top: 2px solid #8acbd2;
+}
+
+.pilar span {
+  color: #a23e8e;
+  font-family: "Oxanium", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.pilar h3,
+.valor h3 {
+  margin: 8px 0;
+  color: #24182d;
+  font-family: "Oxanium", sans-serif;
+  font-size: 18px;
+}
+
+.pilar p,
+.valor p {
+  color: #5f6472;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.nosotros-proposito {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 48px;
+  padding: 32px;
+  border-left: 4px solid #56b9c7;
+  background: #fff;
+}
+
+.nosotros-valores {
+  padding-bottom: 44px;
+}
+
+.valores-lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 44px;
+}
+
+.valor {
+  padding: 18px 0;
+  border-top: 1px solid #dce1e8;
+}
+
+.nosotros-cierre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 24px 28px;
+  background: linear-gradient(110deg, #30213f, #512052 70%, #672653);
+  color: #fff;
+}
+
+.nosotros-cierre p {
+  font-family: "Oxanium", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.nosotros-cierre a {
+  flex: 0 0 auto;
+  color: #fff;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nosotros-cierre a:hover {
+  color: #8ce1e5;
+}
+
+@media (max-width: 700px) {
+  .pagina-quienes-somos {
+    padding-top: 108px;
+  }
+
+  .nosotros-contenido {
+    width: calc(100% - 28px);
+    padding: 24px 0 44px;
+  }
+
+  .nosotros-hero {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 16px;
+    padding: 10px 0 28px;
+  }
+
+  .nosotros-logo {
+    width: 76px;
+    height: 76px;
+  }
+
+  .nosotros-presentacion h1 {
+    font-size: 27px;
+  }
+
+  .nosotros-ceja {
+    font-size: 10px;
+  }
+
+  .nosotros-eslogan {
+    font-size: 16px;
+  }
+
+  .nosotros-presentacion > p:not(.nosotros-ceja, .nosotros-eslogan) {
+    font-size: 14px;
+  }
+
+  .nosotros-enlace {
+    min-height: 40px;
+    margin-top: 14px;
+  }
+
+  .nosotros-pilares,
+  .nosotros-valores {
+    padding-top: 32px;
+  }
+
+  .nosotros-titulo-seccion h2,
+  .nosotros-proposito h2 {
+    font-size: 23px;
+  }
+
+  .pilares-lista,
+  .nosotros-proposito,
+  .valores-lista {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pilares-lista {
+    gap: 12px;
+  }
+
+  .pilar {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    column-gap: 10px;
+    padding: 14px 0;
+  }
+
+  .pilar span {
+    grid-row: span 2;
+  }
+
+  .pilar h3 {
+    margin: 0 0 4px;
+  }
+
+  .pilar p {
+    grid-column: 2;
+  }
+
+  .nosotros-proposito {
+    gap: 24px;
+    margin-top: 34px;
+    padding: 22px 18px;
+  }
+
+  .nosotros-valores {
+    padding-bottom: 32px;
+  }
+
+  .nosotros-cierre {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
   }
 }
