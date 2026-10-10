@@ -239,6 +239,7 @@ function createProductCard(product) {
 	const card = document.createElement("a");
 	card.className = "producto-card";
 	card.dataset.productName = product.name.toLocaleLowerCase("es");
+	card.dataset.category = productCategories[product.id];
 	card.href = `producto.html?id=${encodeURIComponent(product.id)}`;
 	card.target = "_blank";
 	card.rel = "noopener";
@@ -277,6 +278,23 @@ const bestSellerIds = [
 	"consola-game-stick-m8",
 	"reloj-hk10-pro-max"
 ];
+const productCategories = {
+	"cable-carga-rapida": "accesorios",
+	"kit-carga-rapida-240w": "accesorios",
+	"gamepad-d11": "gaming",
+	"gamepad-ab01": "gaming",
+	"lampara-pizarra-led": "smart-home",
+	"soporte-magnetico-dual": "accesorios",
+	"soporte-pro-360": "accesorios",
+	"soporte-portatil-nogal": "accesorios",
+	"peluche-murder-drones": "accesorios",
+	"proyector-hy300": "smart-home",
+	"consola-game-stick-m8": "gaming",
+	"lampara-g-grande": "smart-home",
+	"reloj-hk10-pro-max": "accesorios",
+	"lampara-g-mini": "smart-home",
+	"smartwatch-ultra3-mvp250": "accesorios"
+};
 const usefulTechnologyIds = [
 	"proyector-hy300",
 	"consola-game-stick-m8",
@@ -304,16 +322,29 @@ if (productGrid) {
 	// Oculta cada bloque cuando la búsqueda no deja productos visibles.
 	function filterProducts() {
 		const query = searchInput?.value.trim().toLocaleLowerCase("es") || "";
+		const category = document.querySelector(".filtro-categoria")?.value || "todos";
+		const isCategoryFilterActive = category !== "todos";
+		const featuredSection = productGrid.closest(".catalogo-seccion");
+		const featuredTitle = featuredSection?.querySelector(".destacado");
+		if (featuredTitle) featuredTitle.textContent = isCategoryFilterActive ? "Productos" : "Nuevo y Destacado";
+		document.querySelectorAll(".catalogo-seccion").forEach((section) => {
+			section.hidden = isCategoryFilterActive && section !== featuredSection;
+		});
 		document.querySelectorAll(".catalogo-seccion").forEach((section) => {
 			const cards = section.querySelectorAll(".producto-card");
 			cards.forEach((card) => {
-				card.hidden = !card.dataset.productName.includes(query);
+				const matchesSearch = card.dataset.productName.includes(query);
+				const matchesCategory = category === "todos" || card.dataset.category === category;
+				card.hidden = !matchesSearch || !matchesCategory;
 			});
-			section.hidden = ![...cards].some((card) => !card.hidden);
+			if (!isCategoryFilterActive || section === featuredSection) {
+				section.hidden = ![...cards].some((card) => !card.hidden);
+			}
 		});
 	}
 	filterProducts();
 	searchInput?.addEventListener("input", filterProducts);
+	document.querySelector(".filtro-categoria")?.addEventListener("change", filterProducts);
 }
 
 document.querySelectorAll(".input-busqueda").forEach((searchInput) => {
