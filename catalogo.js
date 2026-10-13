@@ -2,7 +2,7 @@ window.productosCatalogo = [
 	{
 		id: "cable-carga-rapida",
 		name: "Cable de carga rápida de nailon 1.5 metros con soporte",
-		price: 15,
+		price: 10,
 		images: [
 			"productos/cable de carga rápida de nailon 1.5 metros con soporte/cable de carga rápida de nailon 1.5 metros con soporte_1.jpeg",
 			"productos/cable de carga rápida de nailon 1.5 metros con soporte/cable de carga rápida de nailon 1.5 metros con soporte_2.jpeg",
@@ -14,7 +14,7 @@ window.productosCatalogo = [
 	{
 		id: "kit-carga-rapida-240w",
 		name: "Kit de carga rápida Premium: cable 240W Pro 90° + cargador GaN 30W",
-		price: null,
+		price: 15,
 		images: [
 			"productos/kit-240w-1.jpeg",
 			"productos/kit-240w-2.jpeg",
@@ -57,7 +57,7 @@ window.productosCatalogo = [
 	{
 		id: "lampara-pizarra-led",
 		name: "Lámpara LED 3D - Pizarra Creativa (30x20cm)",
-		price: 20,
+		price: 17,
 		images: [
 			"productos/Lámpara LED 3D - Pizarra Creativa (30x20cm)/Lámpara LED 3D - Pizarra Creativa (30x20cm)_1.jpeg",
 			"productos/Lámpara LED 3D - Pizarra Creativa (30x20cm)/Lámpara LED 3D - Pizarra Creativa (30x20cm)_2.jpeg",
@@ -69,7 +69,7 @@ window.productosCatalogo = [
 	{
 		id: "soporte-magnetico-dual",
 		name: "Soporte Magnético Dual - Aluminio Premium",
-		price: 22,
+		price: 20,
 		images: [
 			"productos/Soporte Magnético Dual - Aluminio Premium/Soporte Magnético Dual - Aluminio Premium_1.jpeg",
 			"productos/Soporte Magnético Dual - Aluminio Premium/Soporte Magnético Dual - Aluminio Premium_2.jpeg",
@@ -95,7 +95,7 @@ window.productosCatalogo = [
 	{
 		id: "soporte-portatil-nogal",
 		name: "Soporte portátil de metal y nogal para teléfono y tablet",
-		price: 10,
+		price: 7,
 		images: [
 			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable_1.jpeg",
 			"productos/Soporte Portátil de Metal y Nogal para Teléfono y Tablet/Soporte Portátil de Metal y Nogal para Teléfono y Tablet, 360° - Acero Inoxidable_2.jpeg",
@@ -164,7 +164,7 @@ window.productosCatalogo = [
 	{
 		id: "lampara-g-mini",
 		name: "Lámpara G inteligente Mini con Bluetooth y carga inalámbrica",
-		price: null,
+		price: 17,
 		images: [
 			"productos/Lámpara G Inteligente/pasted-image.jpeg",
 			"productos/Lámpara G Inteligente/pasted-image (2).jpeg"
@@ -174,7 +174,7 @@ window.productosCatalogo = [
 	{
 		id: "smartwatch-ultra3-mvp250",
 		name: "Reloj inteligente Smartwatch Ultra3 MVP-250",
-		price: 25,
+		price: 20,
 		images: [
 			"productos/Reloj inteligente Smartwatch Ultra3 MVP-250/Reloj inteligente Smartwatch Ultra3 MVP-250_1.jpeg",
 			"productos/Reloj inteligente Smartwatch Ultra3 MVP-250/Reloj inteligente Smartwatch Ultra3 MVP-250_2.jpeg",
